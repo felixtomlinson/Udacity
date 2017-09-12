@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
    <head>
-     <title> Notes from first part of my nanodegree</title>
+     <title> Notes from my nanodegree</title>
   </head> 
   <body>
       <p>
@@ -35,6 +35,47 @@
         Main focus is the body (CSS and Java Script outside this)<br>
         Indentation important<br>
         <b>People need to read code too.</b> <br>
+      
       </span>
+      <p>
+        <h1>Notes from the second part of my nanodegree</h1>
+        <h2> General notes </h2>
+
+         HTML CSS and Javascript all have different purposes<br>
+         <br>
+         <Strong>HTML - structure<br>
+         CSS - style <br>
+         Javascript - interactive elements <br> </strong><br>
+         Tree like structure <br>
+         HTML - language, tags turned into elements forming a tree <br>
+         Document object model - standard convention for representing and interacting with html <br>
+         CSS allows you to say all X with class should look like Y <br>
+         Once you know language, you will have idea as to what it will look like. <br>
+         <b>Everything is a box</b> <br>
+         Thinking in terms of boxes makes your life as front end web developer much easier <br>
+         Grid helps to make sure everything is aligned <br>
+         Start with the big boces and move down from there <br>
+         Classes are labels on boxes - remind you. Can belong to multiple classes <br>
+         <br>
+
+         <h2> Example of divs </h2> 
+         <div class="title">
+           My app
+         </div>
+         <div class="app">
+           <div class="screenshot">
+             Image
+           </div>
+           <div class="description">
+             Text
+           </div>
+         </div>
+         <br>
+         I haven't quite worked out what difference all the above makes.
+         
+         <h2> Further watching </h2>
+            <a href=https://www.youtube.com/watch?v=aZpYkA1VghA> Easy HTML editing with Chrome's Dev Tools </a>
+            
+      </p>
     </body>
 </html>
