@@ -72,9 +72,11 @@
          </div>
          <br>
          I haven't quite worked out what difference all the above makes.
+         It took me half an hour to get exactly the same piece of code out of a zip file because Udacity don't seem to be aware that Ubuntu exists
          
-         <h2> Further watching </h2>
+         <h2> Further watching / reading </h2>
             <a href=https://www.youtube.com/watch?v=aZpYkA1VghA> Easy HTML editing with Chrome's Dev Tools </a>
+            <a href=https://www.w3schools.com/> W3 schools website </a>
             
       </p>
     </body>
