@@ -38,46 +38,103 @@
       
       </span>
       <p>
-        <h1>Notes from the second part of my nanodegree</h1>
-        <h2> General notes </h2>
+        HTML CSS and Javascript all have different purposes<br>
+      <br>
+      <Strong>HTML - structure<br>
+      CSS - style <br>
+      Javascript - interactive elements <br> </strong><br>
+      Tree like structure <br>
+      HTML - language, tags turned into elements forming a tree <br>
+      Document object model - standard convention for representing and interacting with html <br>
+      CSS allows you to say all X with class should look like Y <br>
+      Once you know language, you will have idea as to what it will look like. <br>
+      <b>Everything is a box</b> <br>
+      Thinking in terms of boxes makes your life as front end web developer much easier <br>
+      Grid helps to make sure everything is aligned <br>
+      Start with the big boces and move down from there <br>
+      Classes are labels on boxes - remind you. Can belong to multiple classes <br>
+      Avoid repetition <br>
+      CSS stands fro cascading style sheets <br>
+      Several sheets can be references from same HMTL. <br>
+      Most specific rules applied. Go through elements until you find most specific one. <br>
+      CSS write selector, select HTML tag and apply to all tags <br>
+      p { } would apply to all paragraphs <br>
+      apply to a class .X {X:X;} <br>
+      Learn more about colours and how to define them? More specific than generic colours. CSS has a lot of functionality. <br>
+      Call lots of different types of colours and fonts. <br>
+      Everything betwee { } is a <strong>rule</strong> <br>
+      The line of code that says background-color : black; is a <strong>declaration</strong>. background-color is a <strong>property</strong> and black is the <strong>value</strong> of that property. <br>
+      Use Classes to differentiate different styles for different parts of the document <br>
+      Can write CSS at the top of your HTML document <br>
+      Can link to CSS in a separate file <br>
+      Can write your style inline in html <br>
+      Semantic conventions often associated with styles <br>
+      There are default style types <br>
+      Box model - margins, borders, padding, content.<br>
+      Content - image or text. Nucleus (protected by other things, don't overlap or look to close)<br>
+      Padding - green colour, clears an area around the content, affected by background colour of box <br>
+      Border - around padding and content - colour of box <br>
+      Margin - round the box - totally transparent, space around boxes. <br>
+      Can play around with width of all of these things.<br>
+      Size of element equal to whole thing. <br>
+      Difficult to know how much apace box will take. <br>
+      *{box-sizing: border-box;} includes border and boxes - size of box will always stay the same. Margin not included. <br>
+      Drawback if you want to make sure older browsers can display it - browser specific instructions ahead of border-box <br>
+      e.g. -webkit-box-etc., -moz-etc., -ms-etc. <br>
+      Set size as pixel or percentage. Percentage changes to screen size. <br>
+      Max width <br>
+      Positioning complicated <br>
+      Flexbox <br>
+      Parent container to value flex : element.style {display: flex;} <br>
+      <b>Code, test, refine</b> <br>
+      Boxify, tag, size of boxes, how to position on screen, general layout. Then smaller details. <br>
+      Look for natural boxes <br>
+      Look for repeated styles and semantic elements <br>
+      Write html <br>
+      Apply styles <br>
+      Fix things <br>
 
-         HTML CSS and Javascript all have different purposes<br>
-         <br>
-         <Strong>HTML - structure<br>
-         CSS - style <br>
-         Javascript - interactive elements <br> </strong><br>
-         Tree like structure <br>
-         HTML - language, tags turned into elements forming a tree <br>
-         Document object model - standard convention for representing and interacting with html <br>
-         CSS allows you to say all X with class should look like Y <br>
-         Once you know language, you will have idea as to what it will look like. <br>
-         <b>Everything is a box</b> <br>
-         Thinking in terms of boxes makes your life as front end web developer much easier <br>
-         Grid helps to make sure everything is aligned <br>
-         Start with the big boces and move down from there <br>
-         Classes are labels on boxes - remind you. Can belong to multiple classes <br>
-         <br>
+      <h2>Useful links</h2>
 
-         <h2> Example of divs </h2> 
-         <div class="title">
-           My app
-         </div>
-         <div class="app">
+      <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference"> Mozilla developer network useful CSS stuff </a></li>
+      <li><a href="http://validator.w3.org/#validate_by_input">To verify HTML</a></li>
+      <li><a href="http://jigsaw.w3.org/css-validator/#validate_by_input">To verify CSS</a> </li>
+
+      <div class="title">
+        My app
+      </div>
+      <div class="app">
+        <div class="screenshot">
+          Image
+        </div>
+        <div class="description">
+          Text
+        </div>
+      </div>
+      <br>
+      I haven't quite worked out what difference all the above makes.
+
+      <h2> Example of divs </h2>
+           <div class="title">
+                 My app
+           </div>
+           <div class="app">
            <div class="screenshot">
-             Image
+                   Image
            </div>
            <div class="description">
-             Text
+                   Text
            </div>
-         </div>
-         <br>
-         I haven't quite worked out what difference all the above makes.
-         It took me half an hour to get exactly the same piece of code out of a zip file because Udacity don't seem to be aware that Ubuntu exists
-         
-         <h2> Further watching / reading </h2>
-            <a href=https://www.youtube.com/watch?v=aZpYkA1VghA> Easy HTML editing with Chrome's Dev Tools </a>
-            <a href=https://www.w3schools.com/> W3 schools website </a>
-            
+
+               <br>
+               I haven't quite worked out what difference all the above makes.
+
+      <h2> Further watching </h2>
+          <li><a href=https://www.youtube.com/watch?v=aZpYkA1VghA> Easy HTML editing with Chrome's Dev Tools </a></li>
+          <li><a href="https://www.youtube.com/watch?v=mpyJ28dkzrU"> Understanding div, span, id, and class </a></li>
+          <li><a href="https://www.youtube.com/watch?v=sLo3N7YjZbU">Understanding the importance of sytle</a></li>
+
+
       </p>
     </body>
 </html>
