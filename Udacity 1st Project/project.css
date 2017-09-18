@@ -1,1 +1,102 @@
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  text-align: justify;
+  text-justify: inter-word;
+  margin: 0px;
+  font: 20px helvetica, sans-serif; color: #393A46;
+  background-color:#d4d3cd;
+}
+
+.header {
+  background-image: url(http://i.telegraph.co.uk/multimedia/archive/01448/books_1448404a.jpg);
+  text-align: center;
+  font: 125px helvetica, sans-serif; color: white;
+  font-style: normal;
+  font-weight: bold;
+  padding-top: 50px;
+  padding-bottom: 150px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+}
+
+.option {
+  background-size: cover;
+  display: -webkit-flex;
+  display: flex;
+  width: 100%;
+  margin-bottom: 15%;
+}
+
+.option1 {
+  background-image: url(/home/felix/Desktop/stage1/pexels-photo-287336.png);
+  margin-top: 50px;
+  padding: 10%;
+  position: absolute;
+  left: 10%;
+  -moz-border-radius: 50%;
+	-webkit-border-radius: 50%;
+	border-radius: 50%;
+  text-align: center;
+  text-shadow: 5px;
+  vertical-align: middle;
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-size: 30px;
+  color: white;
+  font-weight: bolder;
+}
+
+.option2 {
+  background-image: url(/home/felix/Desktop/stage1/pexels-photo-192940.jpeg);
+  margin-top: 50px;
+  padding: 10%;
+  position: absolute;
+  right: 10%;
+  -moz-border-radius: 50%;
+	-webkit-border-radius: 50%;
+	border-radius: 50%;
+  text-align: center;
+  text-shadow: 5px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-size: 30px;
+  color: white;
+  font-weight: bolder;
+  }
+
+.about{
+  margin-top: 15%;
+  margin-left: 15%;
+  margin-right: 15%;
+}
+
+h2 {
+  font-variant: small-caps;
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.footer{
+  background-color: #a55503;
+  margin: 0%;
+  width: 100%;
+  height: 100px;
+  position: -webkit-sticky;
+  position: sticky;
+  bottom: 0;
+}
+
+.footer-text{
+  background-color: #a55503;
+  font-size: 15px;
+  color: #d4d3cd;
+  font-weight: bold;
+  margin-left:10px;
+  margin-bottom: 10px;
+}
 
