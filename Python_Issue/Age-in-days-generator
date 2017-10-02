@@ -1,0 +1,39 @@
+# Given your birthday and the current date, calculate your age 
+# in days. Compensate for leap days. Assume that the birthday 
+# and current date are correct dates (and no time travel). 
+# Simply put, if you were born 1 Jan 2012 and todays date is 
+# 2 Jan 2012 you are 1 day old.
+
+# IMPORTANT: You don't need to solve the problem yet! 
+# Just brainstorm ways you might approach it!
+
+daysofmonths = [ 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+
+def isleapyear(year):
+    leap_year= []
+    a=0
+    while a<25:
+        leap_year.append(2016-(a*4))
+        a=a+1
+    if year in leap_year:
+        return 'True'
+    else:
+        return 'False'
+
+
+def daysBetweenDates(y1, m1, d1, y2, m2, d2):
+    days_y = 0
+    while (y2-1)>y1:
+        if isleapyear(y2)=='False':
+            days_y=days_y+365
+        else:
+            days_y=days_y+366
+        y2=y2-1
+    days_m = 0
+    for e in daysofmonths[:(m2-1)] + daysofmonths[(m1):]:
+        days_m=days_m+e
+    days_d = d2+daysofmonths[(m1-1)]-d1
+    days= days_y+days_m+days_d
+    return days
+    
+print daysBetweenDates(1992,01,01,2017,10,02)
