@@ -33,7 +33,7 @@ def days_between_dates(y1, m1, d1, y2, m2, d2):
         y2 = y2-1
         # what happens when y2 is equal to y1?
     days_m = 0
-    if y2 > y1:
+    if y2 > y1:  # this line is now redundant
         for e in days_of_months[:(m2-1)] + days_of_months[(m1):]:
             days_m = days_m+e
     # skips directly to here
@@ -51,6 +51,7 @@ def days_between_dates(y1, m1, d1, y2, m2, d2):
 
 
 print days_between_dates(1992,01,01,2017,10,02)
+print days_between_dates(2016, 12, 31, 2017, 1, 1)
 
 # computers do this by converting to seconds since 1970, comparing, and then converting back
 # that's...probably too specific. But you could do it with days
@@ -70,19 +71,22 @@ def convert_date_to_days(day, month, year):
     hard_coded_year = 1970
     """this function is called twice, and calculates days since an arbitrary and hard-coded date"""
     for y in range(hard_coded_year, year):
+        # range is a function that takes a start and end integer, then gives you each int between the two
         if year_is_leap(y):
+            # see above for function to check if year is leap
             days += 366
         else:
             days += 365
-    days += sum(days_in_months[0:month-1])
-    days += day
+    # could have used a function here
+    days += sum(days_in_months[0:month-1])  # this sums the list, up to the month before the month in the test
+    days += day  # adds the days
     return days
 
 
 def compare_dates(date_1, date_2):
     days_1 = convert_date_to_days(*date_1)
     days_2 = convert_date_to_days(*date_2)
-    diff = abs(days_2-days_1)
+    diff = abs(days_2-days_1)  # absolute value in case date 2 is before date 1
     print(diff)
 
 
