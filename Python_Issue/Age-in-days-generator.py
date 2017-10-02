@@ -51,3 +51,48 @@ def days_between_dates(y1, m1, d1, y2, m2, d2):
 
 
 print days_between_dates(1992,01,01,2017,10,02)
+
+# computers do this by converting to seconds since 1970, comparing, and then converting back
+# that's...probably too specific. But you could do it with days
+# consider:
+
+
+def year_is_leap(year):
+    if ((year % 4 is 0) and (year % 100 is not 0)) or (year % 400 is 0):
+        return True
+    else:
+        return False
+
+
+def convert_date_to_days(day, month, year):
+    days_in_months = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+    days = 0
+    hard_coded_year = 1970
+    """this function is called twice, and calculates days since an arbitrary and hard-coded date"""
+    for y in range(hard_coded_year, year):
+        if year_is_leap(y):
+            days += 366
+        else:
+            days += 365
+    days += sum(days_in_months[0:month-1])
+    days += day
+    return days
+
+
+def compare_dates(date_1, date_2):
+    days_1 = convert_date_to_days(*date_1)
+    days_2 = convert_date_to_days(*date_2)
+    diff = abs(days_2-days_1)
+    print(diff)
+
+
+test1 = ([1, 1, 1992], [2, 10, 2017])
+test2 = ([1, 1, 2016], [31, 12, 2015])
+
+compare_dates(*test1)
+compare_dates(*test2)
+
+
+
+
+
