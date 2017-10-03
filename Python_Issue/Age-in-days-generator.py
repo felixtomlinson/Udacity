@@ -30,7 +30,7 @@ def daysBetweenDates(y1, m1, d1, y2, m2, d2):
         for e in days_of_months[m1-1:(m2-2)]:
             days_m=days_m+e
             
-    if days_m!=0 or m2>m1 :
+    if days_m!=0 or m2>m1 or (m1==12 and m2==1):
         days_d = d2+days_of_months[(m1-1)]-d1
     elif m1==m2:
         days_d = d2-d1
