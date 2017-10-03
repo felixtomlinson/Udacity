@@ -1,9 +1,5 @@
 days_of_months = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
-# cleaned up variable and list
 
-
-# this function is quite long and could be shorter
-# what features does a leap year have?
 
 def year_is_leap(year):
     if ((year % 4 is 0) and (year % 100 is not 0)) or (year % 400 is 0):
