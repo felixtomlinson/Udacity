@@ -7,7 +7,7 @@ answer_areas = ['___1___', '___2___', '___3___', '___4___']
 
 answers = ['Johnny', 'Danny', 'Olly','Joey']
 
-def correct_or_not (word, answers, index_number):
+def correct_or_not(word, answers, index_number):
   if word == answers[index_number]:
     return True
   else:
