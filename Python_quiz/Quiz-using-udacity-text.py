@@ -5,7 +5,7 @@ tuple, and ___4___ or can be more complicated such as objects and lambda functio
 
 answer_areas = ['___1___', '___2___', '___3___', '___4___']
 
-answers = ['Johnny', 'Danny', 'Olly','Joey']
+answers = ['Functions', 'Inputs', 'None','Lists']
 
 def correct_or_not(word, answers, index_number):
   if word == answers[index_number]:
