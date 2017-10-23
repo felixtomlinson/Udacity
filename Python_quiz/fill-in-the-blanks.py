@@ -78,16 +78,18 @@ def prompter(question, word, answers, index_number, answer_areas):
       return ('\n'+ updated_text +'\n'*2+"Great! Now try the next one"+'\n')
   if variable:
     updated_text = text_accumulator(question, answer_areas, answers, index_number)
-    return ('\n'+ updated_text + '\n'*2+"Great! Now let's try the next one"+'\n')
+    return ('\n'+ updated_text + '\n'*2 +"Great! Now let's try the next one"+'\n')
 
-def final_question(word,answers, index_number):
+def final_question(question, word,answers, index_number, answer_areas):
   variable = correct_or_not(word, answers, index_number)
   while not variable:
     result = input('\n'+ "Sorry that's wrong, why don't you try again?")
     if correct_or_not(result, answers, index_number):
-      return ('\n'+"Congratulations you have completed the quiz!!!")
+      updated_text = text_accumulator(question, answer_areas, answers, index_number)
+      return ('\n'+ updated_text + '\n'*2 +"Congratulations you have completed the quiz!!!")
   if variable:
-    print ('\n'+ "Congratulations you have completed the quiz!!!")
+    updated_text = text_accumulator(question, answer_areas, answers, index_number)
+    print ('\n'+ updated_text +'\n'*2 + "Congratulations you have completed the quiz!!!")
 
 def question_asker(answer_areas):
   answers = answer_selector(easy_medium_hard[-1])
@@ -97,7 +99,7 @@ def question_asker(answer_areas):
     if i < (len(answers)-1):
       print (prompter(question, quiz_answer, answers, i, answer_areas))
     elif i == (len(answers)-1):
-      print (final_question(quiz_answer,answers,i))
+      print (final_question(question, quiz_answer,answers,i, answer_areas))
     question = text_accumulator(question, answer_areas, answers, i)
 
 print (easy_medium_hard_asker()) 
