@@ -36,6 +36,10 @@ answer_areas = ['___1___', '___2___', '___3___', '___4___', '___5___', '___6___'
 easy_medium_hard = [input("What degree of difficulty do you want to play: easy, medium or hard?")]
 
 def easy_medium_hard_asker():
+  ''' This function uses the input from that the person deciding on \
+  a degree of difficulty makes and uses that to return the \
+  right questions. If they do not provide one of the three on offer it asks \
+  them again until they do.''' 
   difficulty = easy_medium_hard
   for i in difficulty:
     if i == 'easy':
@@ -47,6 +51,8 @@ def easy_medium_hard_asker():
     difficulty.append(input('\n'+ "Sorry, you must select easy, medium or hard. Please try again:"))
 
 def answer_selector(answer):
+  ''' This function allows you to input one of the three \
+  degrees of difficulty and return the answers that correspond to that degree'''
   if answer == 'easy':
     return (easyanswers)
   if answer == 'medium':
@@ -55,6 +61,8 @@ def answer_selector(answer):
     return (hardanswers)
     
 def question_selector(answer):
+  ''' This function allows you to input one of the three \
+  degrees of difficulty and return the questions that correspond to that degree'''
   if answer == 'easy':
     return (easyquestion)
   if answer == 'medium':
@@ -63,12 +71,17 @@ def question_selector(answer):
     return (hardquestion)
 
 def correct_or_not(word, answer_list, index_number):
+  ''' This function lets you know if the word that is being inputted \
+  corresponds to the answer at the index of the index number'''
   if word == answer_list[index_number]:
     return True
   else:
     return False
 
 def text_accumulator(Question, parts_of_speech, Answers, index_number):
+    ''' This function works out which words need to be replaced \
+    because they have been inputted as correct answers, and adds them together \
+    with the ones that don't to create the new question text''' 
     replaced = []
     Question = Question.split()
     for word in Question:
@@ -81,7 +94,11 @@ def text_accumulator(Question, parts_of_speech, Answers, index_number):
     replaced = " ".join(replaced)
     return replaced
 
-def prompter(question, word, answers, index_number, answer_areas): 
+def prompter(question, word, answers, index_number, answer_areas):
+  ''' This text propts people to either answer the next question, or \
+  provide a different answer to the same question depending on whether or \
+  not they have answered the question correctly. It also shows the new prompt \
+  text with answers filled in'''
   variable = correct_or_not(word, answers, index_number)
   while not variable:
     result = input('\n'+ "Sorry that's wrong, why don't you try again?")
@@ -93,6 +110,10 @@ def prompter(question, word, answers, index_number, answer_areas):
     return ('\n'+ updated_text + '\n'*2 +"Great! Now let's try the next one"+'\n')
 
 def final_question(question, word,answers, index_number, answer_areas):
+  ''' This function propts people either to answer the question again or \
+  congratulates them on finishing the quiz depending on whether or \
+  not they have answered the question correctly. It also shows the new prompt \
+  text with answers filled in'''
   variable = correct_or_not(word, answers, index_number)
   while not variable:
     result = input('\n'+ "Sorry that's wrong, why don't you try again?")
@@ -104,6 +125,7 @@ def final_question(question, word,answers, index_number, answer_areas):
     print ('\n'+ updated_text +'\n'*2 + "Congratulations you have completed the quiz!!!")
 
 def question_asker(answer_areas):
+  ''' This function asks people the questions in sequence'''
   answers = answer_selector(easy_medium_hard[-1])
   question = question_selector(easy_medium_hard[-1])
   for i in range(len(answers)):
