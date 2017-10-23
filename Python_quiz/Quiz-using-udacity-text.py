@@ -3,26 +3,28 @@ adding ___2___ separated by commas between the parentheses. ___1___s by default 
 don't specify the value to return. ___2___ can be standard data types such as string, number, dictionary, \
 tuple, and ___4___ or can be more complicated such as objects and lambda functions."
 
+easyanswers = ['a', 'b', 'c','d']
+
 mediumquestion = "A ___1___ is created with the def keyword. You specify the inputs a ___1___ takes by \
 adding ___2___ separated by commas between the parentheses. ___1___s by default return ___3___ if you \
 don't specify the value to return. ___2___ can be standard data types such as string, number, dictionary, \
 tuple, and ___4___ or can be more complicated such as objects and lambda functions."
 
+mediumanswers = ['e', 'f', 'g', 'h']
+
 hardquestion = "A ___1___ is created with the def keyword. You specify the inputs a ___1___ takes by \
 adding ___2___ separated by commas between the parentheses. ___1___s by default return ___3___ if you \
 don't specify the value to return. ___2___ can be standard data types such as string, number, dictionary, \
-tuple, and ___4___ or can be more complicated such as objects and lambda functions."
+tuple, and ___4___ or can be more complicated such as objects and lambda functions. ___5___"
 
-answer_areas = ['___1___', '___2___', '___3___', '___4___']
+hardanswers = ['i', 'j', 'k', 'l', 'm']
 
-answers = ['a', 'b', 'c','d']
+answer_areas = ['___1___', '___2___', '___3___', '___4___', '___5___', '___6___', '___7___']
 
-def easy_medium_hard_inputter():
-  easy_medium_hard= input("What degree of difficulty do you want to play: easy, medium or hard?")
-  return easy_medium_hard
+easy_medium_hard = input("What degree of difficulty do you want to play: easy, medium or hard?")
 
 def easy_medium_hard_selector():
-  difficulty = [easy_medium_hard_inputter()]
+  difficulty = [easy_medium_hard]
   for i in difficulty:
     if i == 'easy':
       return ('\n'+ 'Question:' +'\n'*2 + easyquestion +'\n')
@@ -31,6 +33,14 @@ def easy_medium_hard_selector():
     if i == 'hard':
       return ('\n'+ 'Question:' +'\n'*2 + hardquestion +'\n')
     difficulty.append(input('\n'+ "Sorry, you must select easy, medium or hard. Please try again:"))
+
+def answer_selector(answer):
+  if answer == 'easy':
+    return (easyanswers)
+  if answer == 'medium':
+    return (mediumanswers)
+  if answer == 'hard':
+    return (hardanswers)
 
 def correct_or_not(word, answers, index_number):
   if word == answers[index_number]:
@@ -56,14 +66,14 @@ def final_question(word,answers, index_number):
   if variable:
     print ('\n'+ "Congratulations you have completed the quiz!!!")
 
-def question_asker(answers, answer_areas):
-  for i in range(len(answer_areas)):
+def question_asker(answer_areas):
+  answers = answer_selector(easy_medium_hard)
+  for i in range(len(answers)):
     quiz = input("What word fits into the sentence in place of " + answer_areas[i] + "?")
-    if i < (len(answer_areas)-1):
+    if i < (len(answers)-1):
       print (prompter(quiz, answers, i))
-    elif i == (len(answer_areas)-1):
+    elif i == (len(answers)-1):
       print (final_question(quiz,answers,i))
 
-
 print (easy_medium_hard_selector()) 
-print (question_asker(answers, answer_areas))
+print (question_asker(answer_areas))
