@@ -5,7 +5,7 @@ tuple, and ___4___ or can be more complicated such as objects and lambda functio
 
 answer_areas = ['___1___', '___2___', '___3___', '___4___']
 
-answers = ['Functions', 'Inputs', 'None','Lists']
+answers = ['a', 'b', 'c','d']
 
 def correct_or_not(word, answers, index_number):
   if word == answers[index_number]:
@@ -16,18 +16,29 @@ def correct_or_not(word, answers, index_number):
 def prompter(word, answers, index_number): 
   variable = correct_or_not(word, answers, index_number)
   while not variable:
-    result = input("Sorry that's wrong, why don't you try again?")
+    result = input('\n'+ "Sorry that's wrong, why don't you try again?")
     if correct_or_not(result, answers, index_number):
-      return ("Great! Now try the next one")
+      return ('\n'+"Great! Now try the next one"+'\n')
   if variable:
-    return ("Great! Now let's try the next one")
+    return ('\n'+"Great! Now let's try the next one"+'\n')
+
+def final_question(word,answers, index_number):
+  variable = correct_or_not(word, answers, index_number)
+  while not variable:
+    result = input('\n'+ "Sorry that's wrong, why don't you try again?")
+    if correct_or_not(result, answers, index_number):
+      return ('\n'+"Congratulations you have completed the quiz!!!")
+  if variable:
+    print ('\n'+ "Congratulations you have completed the quiz!!!")
 
 def question_asker(answers, answer_areas):
   for i in range(len(answer_areas)):
     quiz = input("What word fits into the sentence in place of " + answer_areas[i] + "?")
-    if i == (len(answer_areas)-1):
-      return "Congratulations you have completed the quiz!!!"
-    print (prompter(quiz, answers, i))
+    if i < (len(answer_areas)-1):
+      print (prompter(quiz, answers, i))
+    elif i == (len(answer_areas)-1):
+      print (final_question(quiz,answers,i))
+
 
 print (sample + '\n') 
 print (question_asker(answers, answer_areas))
