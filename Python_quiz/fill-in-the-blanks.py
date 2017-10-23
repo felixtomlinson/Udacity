@@ -1,23 +1,35 @@
-easyquestion = "A ___1___ is created with the def keyword. You specify the inputs a ___1___ takes by \
-adding ___2___ separated by commas between the parentheses. ___1___s by default return ___3___ if you \
-don't specify the value to return. ___2___ can be standard data types such as string, number, dictionary, \
-tuple, and ___4___ or can be more complicated such as objects and lambda functions."
+easyquestion = "___1___ all my ___2___ seemed so far away. \
+Now it looks as though they’re here to stay. \
+___3___, I believe in ___1___. \
+___4___ I’m not half the man I used to be. \
+There’s a shadow hanging over me. \
+___3___, ___1___ came ___4___."
 
-easyanswers = ['a', 'b', 'c','d']
+easyanswers = ['Yesterday', 'troubles', 'Oh','Suddenly']
 
-mediumquestion = "A ___1___ is created with the def keyword. You specify the inputs a ___1___ takes by \
-adding ___2___ separated by commas between the parentheses. ___1___s by default return ___3___ if you \
-don't specify the value to return. ___2___ can be standard data types such as string, number, dictionary, \
-tuple, and ___4___ or can be more complicated such as objects and lambda functions."
+mediumquestion = "I’ve got ___1___ on a ___2___ day \
+When it’s ___3___ outside I’ve got the month of May \
+Well I ___4___ you’d say \
+What can ___5___ me feel this way? \
+___6___ (___6___, ___6___) \
+Talkin’ ’bout ___6___ (___6___)"
 
-mediumanswers = ['e', 'f', 'g', 'h']
+mediumanswers = ['sunshine', 'cloudy', 'cold', 'guess', 'make', 'My girl']
 
-hardquestion = "A ___1___ is created with the def keyword. You specify the inputs a ___1___ takes by \
-adding ___2___ separated by commas between the parentheses. ___1___s by default return ___3___ if you \
-don't specify the value to return. ___2___ can be standard data types such as string, number, dictionary, \
-tuple, and ___4___ or can be more complicated such as objects and lambda functions. ___5___"
+hardquestion = "Go ’way from my window \
+Leave at your own chosen speed \
+___1___ not the one ___2___ want, ___3___ \
+___1___ not the one ___2___ need \
+You say ___4___ ___5___ for ___6___ \
+Never weak but always strong \
+To protect ___2___ an’ defend ___2___ \
+Whether ___2___ are right or wrong \
+___6___ to open each and every door \
+But it ___7___ me, ___3___ \
+No, no, no, it ___7___ me, ___3___ \
+It ___7___ me ___4___ ___5___ for, ___3___"
 
-hardanswers = ['i', 'j', 'k', 'l', 'm']
+hardanswers = ["I'm", 'you', 'babe', "you're", "lookin'",'someone',"ain't"]
 
 answer_areas = ['___1___', '___2___', '___3___', '___4___', '___5___', '___6___', '___7___', '___8___', '___9___', '___10___']
 
@@ -46,7 +58,7 @@ def question_selector(answer):
   if answer == 'easy':
     return (easyquestion)
   if answer == 'medium':
-    return (mediumquestionsdf)
+    return (mediumquestion)
   if answer == 'hard':
     return (hardquestion)
 
