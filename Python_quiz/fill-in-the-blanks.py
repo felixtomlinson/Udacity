@@ -56,17 +56,11 @@ def correct_or_not(word, answer_list, index_number):
   else:
     return False
 
-def word_in_pos(word, parts_of_speech):
-    for pos in parts_of_speech:
-        if pos in word:
-            return pos
-    return None
-
 def text_accumulator(Question, parts_of_speech, Answers, index_number):
     replaced = []
     Question = Question.split()
     for word in Question:
-        replacement = word_in_pos(word, parts_of_speech)
+        replacement = parts_of_speech[index_number]
         if replacement != None:
             word = word.replace(replacement, Answers[index_number])
             replaced.append(word)
@@ -104,6 +98,7 @@ def question_asker(answer_areas):
       print (prompter(question, quiz_answer, answers, i, answer_areas))
     elif i == (len(answers)-1):
       print (final_question(quiz_answer,answers,i))
+    question = text_accumulator(question, answer_areas, answers, i)
 
 print (easy_medium_hard_asker()) 
 print (question_asker(answer_areas))
