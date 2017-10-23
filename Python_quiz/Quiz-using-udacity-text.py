@@ -21,10 +21,10 @@ hardanswers = ['i', 'j', 'k', 'l', 'm']
 
 answer_areas = ['___1___', '___2___', '___3___', '___4___', '___5___', '___6___', '___7___']
 
-easy_medium_hard = input("What degree of difficulty do you want to play: easy, medium or hard?")
+easy_medium_hard = [input("What degree of difficulty do you want to play: easy, medium or hard?")]
 
 def easy_medium_hard_selector():
-  difficulty = [easy_medium_hard]
+  difficulty = easy_medium_hard
   for i in difficulty:
     if i == 'easy':
       return ('\n'+ 'Question:' +'\n'*2 + easyquestion +'\n')
@@ -42,8 +42,8 @@ def answer_selector(answer):
   if answer == 'hard':
     return (hardanswers)
 
-def correct_or_not(word, answers, index_number):
-  if word == answers[index_number]:
+def correct_or_not(word, answer_list, index_number):
+  if word == answer_list[index_number]:
     return True
   else:
     return False
@@ -67,7 +67,7 @@ def final_question(word,answers, index_number):
     print ('\n'+ "Congratulations you have completed the quiz!!!")
 
 def question_asker(answer_areas):
-  answers = answer_selector(easy_medium_hard)
+  answers = answer_selector(easy_medium_hard[-1])
   for i in range(len(answers)):
     quiz = input("What word fits into the sentence in place of " + answer_areas[i] + "?")
     if i < (len(answers)-1):
