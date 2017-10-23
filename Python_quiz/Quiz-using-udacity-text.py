@@ -19,11 +19,11 @@ tuple, and ___4___ or can be more complicated such as objects and lambda functio
 
 hardanswers = ['i', 'j', 'k', 'l', 'm']
 
-answer_areas = ['___1___', '___2___', '___3___', '___4___', '___5___', '___6___', '___7___']
+answer_areas = ['___1___', '___2___', '___3___', '___4___', '___5___', '___6___', '___7___', '___8___', '___9___', '___10___']
 
 easy_medium_hard = [input("What degree of difficulty do you want to play: easy, medium or hard?")]
 
-def easy_medium_hard_selector():
+def easy_medium_hard_asker():
   difficulty = easy_medium_hard
   for i in difficulty:
     if i == 'easy':
@@ -41,6 +41,14 @@ def answer_selector(answer):
     return (mediumanswers)
   if answer == 'hard':
     return (hardanswers)
+    
+def question_selector(answer):
+  if answer == 'easy':
+    return (easyquestion)
+  if answer == 'medium':
+    return (mediumquestionsdf)
+  if answer == 'hard':
+    return (hardquestion)
 
 def correct_or_not(word, answer_list, index_number):
   if word == answer_list[index_number]:
@@ -48,14 +56,35 @@ def correct_or_not(word, answer_list, index_number):
   else:
     return False
 
-def prompter(word, answers, index_number): 
+def word_in_pos(word, parts_of_speech):
+    for pos in parts_of_speech:
+        if pos in word:
+            return pos
+    return None
+
+def text_accumulator(Question, parts_of_speech, Answers, index_number):
+    replaced = []
+    Question = Question.split()
+    for word in Question:
+        replacement = word_in_pos(word, parts_of_speech)
+        if replacement != None:
+            word = word.replace(replacement, Answers[index_number])
+            replaced.append(word)
+        else:
+            replaced.append(word)
+    replaced = " ".join(replaced)
+    return replaced
+
+def prompter(question, word, answers, index_number, answer_areas): 
   variable = correct_or_not(word, answers, index_number)
   while not variable:
     result = input('\n'+ "Sorry that's wrong, why don't you try again?")
     if correct_or_not(result, answers, index_number):
-      return ('\n'+"Great! Now try the next one"+'\n')
+      updated_text = text_accumulator(question, answer_areas, answers, index_number)
+      return ('\n'+ updated_text +'\n'*2+"Great! Now try the next one"+'\n')
   if variable:
-    return ('\n'+"Great! Now let's try the next one"+'\n')
+    updated_text = text_accumulator(question, answer_areas, answers, index_number)
+    return ('\n'+ updated_text + '\n'*2+"Great! Now let's try the next one"+'\n')
 
 def final_question(word,answers, index_number):
   variable = correct_or_not(word, answers, index_number)
@@ -68,12 +97,13 @@ def final_question(word,answers, index_number):
 
 def question_asker(answer_areas):
   answers = answer_selector(easy_medium_hard[-1])
+  question = question_selector(easy_medium_hard[-1])
   for i in range(len(answers)):
-    quiz = input("What word fits into the sentence in place of " + answer_areas[i] + "?")
+    quiz_answer = input("What word fits into the sentence in place of " + answer_areas[i] + "?")
     if i < (len(answers)-1):
-      print (prompter(quiz, answers, i))
+      print (prompter(question, quiz_answer, answers, i, answer_areas))
     elif i == (len(answers)-1):
-      print (final_question(quiz,answers,i))
+      print (final_question(quiz_answer,answers,i))
 
-print (easy_medium_hard_selector()) 
+print (easy_medium_hard_asker()) 
 print (question_asker(answer_areas))
