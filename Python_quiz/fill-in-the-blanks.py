@@ -17,6 +17,14 @@ ___4___ I’m not half the man I used to be.\n \
 There’s a shadow hanging over me.\n \
 ___3___, ___1___ came ___4___.\n"
 
+"""One way of making sure your formatting of strings is correct is to
+make them into an array, and then print each line with a for loop. eg:"""
+
+test_array = ["We're the knights of the round table", "We dance whenever we're \
+able", "We do routines", "And chorus scenes", "And footwork impeccable!"]
+for line in test_array:
+    print(line)
+
 easyanswers = ['Yesterday', 'troubles', 'Oh','Suddenly']
 
 mediumquestion = "I’ve got ___1___ on a ___2___ day \
@@ -144,5 +152,6 @@ def main():
     # receive answer
     # check answer
     # do something depending on whether they're right or not
+    pass
 
 main()
