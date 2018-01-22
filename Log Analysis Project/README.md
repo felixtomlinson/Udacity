@@ -1,4 +1,5 @@
-#Log Analysis Project Readme
+Log Analysis Project Readme
+=======
 
 In order to run the Log_Analysis_Project.py you must first save it into your vagrant file. 
 This must be the same place where you have saved newsdata.sql.
