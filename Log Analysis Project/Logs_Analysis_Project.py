@@ -1,4 +1,5 @@
-#! Python 2.7.12
+#!/usr/bin/env python
+
 
 import psycopg2
 
@@ -6,14 +7,27 @@ import psycopg2
 DBNAME = "news"
 
 
+def connect(database_name):
+    """Connect to the PostgreSQL database.  Returns a database connection."""
+    try:
+        db = psycopg2.connect("dbname={}".format(database_name))
+        c = db.cursor()
+        return db, c
+    except psycopg2.Error as e:
+        print "Unable to connect to database"
+        sys.exit(1)
+
+
 def most_popular():
-    database = psycopg2.connect(database=DBNAME)
-    command = database.cursor()
-    command.execute("select title, count(path) \
-    from log, articles \
-    where log.path like '%' || articles.slug || '%' \
-    group by title \
-    order by count(path) desc \
+    "Connects to an PostgreSQL database and runs a query to return the answer\
+    to Q1 then print the answer in the right format."
+    database, command = connect(DBNAME)
+    command.execute("select articles.title, count(log.path) \
+    from log \
+    join articles \
+    on log.path like '%' || articles.slug \
+    group by articles.title \
+    order by count(log.path) desc \
     limit 3;")
     most_popular_articles = command.fetchall()
     for article in most_popular_articles:
@@ -22,13 +36,15 @@ def most_popular():
 
 
 def most_popular_author():
-    database = psycopg2.connect(database=DBNAME)
-    command = database.cursor()
-    command.execute("select name, count(path) from log, articles, authors \
-    where log.path like '%' || articles.slug || '%' \
-    and articles.author = authors.id \
-    group by name \
-    order by count(path) desc;")
+    "Connects to an PostgreSQL database and runs a query to return the answer\
+    to Q2 then print the answer in the right format."
+    database, command = connect(DBNAME)
+    command.execute("select authors.name, count(log.path) \
+    from log \
+    join articles on log.path like '%' || articles.slug \
+    join authors on articles.author = authors.id \
+    group by authors.name \
+    order by count(log.path) desc;")
     most_popular_authors = command.fetchall()
     for author in most_popular_authors:
         print(str(author[0]) + ' - ' + str(author[1]) + ' views\n')
@@ -36,8 +52,10 @@ def most_popular_author():
 
 
 def error_days():
-    database = psycopg2.connect(database=DBNAME)
-    command = database.cursor()
+    "Connects to an PostgreSQL database and runs a query to retrun the answer\
+    to Q3. It then looks up the number of the month in a dictionary of month \
+    name and prints it in the right format."
+    database, command = connect(DBNAME)
     command.execute("select date, errorcount*100.00/total as percentage_error \
     from (select cast(time as date) as Date, count(time) as Total, \
     sum(case when status = '200 OK' then 0 else 1 end) ErrorCount \
@@ -64,15 +82,15 @@ def error_days():
         month = date[1]
         month = month_dictionary[month]
         year = date[0]
-        properly_formatted_date = month + ' ' + day + ' , ' + year
+        properly_formatted_date = month + ' ' + day + ', ' + year
         percentage_error = str(days[1])[:3] + "%" + " errors"
-        print(properly_formatted_date + ' - ' + percentage_error)
+        print(properly_formatted_date + ' - ' + percentage_error + '\n')
     database.close()
 
 
 print('1. What are the most popular three articles of all time?\n\n')
-print(most_popular())
+most_popular()
 print('\n2. Who are the most popular article authors of all time?\n\n')
-print(most_popular_author())
+most_popular_author()
 print('\n3. On which days did more than 1% of requests lead to errors?\n\n')
-print(error_days())
+error_days()
